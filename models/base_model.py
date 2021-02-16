@@ -6,7 +6,7 @@ import models
 
 
 class BaseModel:
-    def __init__(self, id, created_at, updated_at):
+    def __init__(self, *args, **kwargs):
         """constructors"""
         self.id = str(uuid4())
         self.created_at = datetime.now()
