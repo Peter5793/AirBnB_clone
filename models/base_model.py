@@ -2,7 +2,7 @@
 """Base class """
 from uuid import uuid4
 from datetime import datetime
-#import models
+import models
 
 class BaseModel:
     """Public instance attributes intialization"""
@@ -20,6 +20,8 @@ class BaseModel:
                     continue
                 else:
                     setattr(self, key, value)
+       else:
+            models.storage.new(self)
 
     def __str__(self):
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id,
@@ -30,6 +32,8 @@ class BaseModel:
         updates the public instance attribute with current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """
