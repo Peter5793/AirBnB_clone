@@ -33,8 +33,12 @@ class FileStorage:
     def reload(self):
         """deserialize the JSON file to __objects"""
         dict_to_obj = {}
-        for key, value in dict_to_obj.items():
-            cls_to_ins = cls_arr.get(value['__class__'])
-            obj = cls_to_ins(**value)
-        with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
-            FileStorage.__objects[key] = obj
+        try:
+            with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
+                dict_to_obj = json.load(file)
+                for key, value in dict_to_obj.items():
+                    cls_to_ins =cls_arr.get(value['__class__'])
+                    obj = cls_to_ins(**value)
+                    FileStorage.__objects[key] = obj
+        except FileNotFoundError:
+            pass
