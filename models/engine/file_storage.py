@@ -5,6 +5,7 @@ deserializes JSON to instnace
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     """ class File storage """
