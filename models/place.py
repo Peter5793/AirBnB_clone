@@ -2,6 +2,8 @@
 """
 inherit from BaseModel
 """
+from models.base_model import BaseModel
+
 
 class Place(models.base_model.BaseModel):
     """class user that inheirts from Base model"""
