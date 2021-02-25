@@ -10,9 +10,22 @@ class BaseModel:
     """
     defines the common attributes
     """
-    id = str(uuid4())
-    created_at = datetime.now()
-    updated_at = datetime.now()
+    def __init__(self, *args, **kwargs):
+
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+
+        if len(kwargs) > 0:
+            convert = ["created_at", "updated_at"]
+            for k,v in kwargs.items():
+                if k in convert:
+                    setattr(self, k, 
+                            datetime.strptime(v, "%Y-%m-%dT%H:%M:%S.%f"))
+                elif k == "__class__":
+                    continue
+                else:
+                    setattr(self, k, v)
 
     def __str__(self):
         return("[{}] ({}) {}".format(self.__class__.__name__, self.id,
