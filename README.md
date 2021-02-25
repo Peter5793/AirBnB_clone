@@ -29,3 +29,8 @@ EOF help quit
 (hbnb) quit
 $
 ```
+
+
+## Authors
+Peter Lugalia
+Bruno Obonyo
