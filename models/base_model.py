@@ -1,50 +1,38 @@
 #!/usr/bin/python3
-"""Base class """
+"""
+Base model
+"""
 from uuid import uuid4
 from datetime import datetime
-import models
+
 
 class BaseModel:
-    """Public instance attributes intialization"""
-    def __init__(self, *args, **kwargs):
-       self.id = str(uuid4())
-       self.created_at = datetime.now()
-       self.updated_at = datetime.now()
-       if len(kwargs) > 0:
-            convert = ["created_at", "updated_at"]
-            for key, value in kwargs.items():
-                if key in convert:
-                    setattr(self, key, 
-                            datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
-                elif key == "__class__":
-                    continue
-                else:
-                    setattr(self, key, value)
-       else:
-            models.storage.new(self)
+    """
+    defines the common attributes
+    """
+    id = str(uuid4())
+    created_at = datetime.now()
+    updated_at = datetime.now()
 
     def __str__(self):
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id,
-                self.__dict__))
-
+        return("[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                    self.__dict__))
     def save(self):
         """
-        updates the public instance attribute with current datetime
+        Updates te public instance attibute updated_at
         """
         self.updated_at = datetime.now()
-        models.storage.new(self)
-        models.storage.save()
-
     def to_dict(self):
         """
-        returns a dictioanry containing all  keys/valu of __dict__
+        returns a dictionary containing all keys/values of
+        __dict__ of the instance
         """
         l_dict = self.__dict__
-        dict_str = {}
-        for key, value in l_dict.items():
-            if isinstance(value, datetime):
-                dict_str[key] = value.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        dict_str  = {}
+        for k, v in l_dict.items():
+            if isinstance(v, datetime):
+                dict_str[k] = v.strftime("%Y-%m-%dT%H:%M:%S.%f")
             else:
-                dict_str[key] = value
+                dict_str[k] = v
         dict_str["__class__"] = self.__class__.__name__
         return dict_str

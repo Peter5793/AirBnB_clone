@@ -2,7 +2,7 @@
 """
 Inherit from basemodel
 """
-import models
+from models.base_model import BaseModel
 
 
 class User(models.base_model.BaseModel):

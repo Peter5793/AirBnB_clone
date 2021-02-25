@@ -126,7 +126,6 @@ class HBNBCommand(cmd.Cmd):
              setattr(obj, list_line[2], list_line[3][1:-1])
              obj.save()
 
-
     
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
