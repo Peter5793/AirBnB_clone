@@ -16,8 +16,8 @@ from models.city import City
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    cls_arr = {"BaseModel": BaseModel
-            "User":User, "State": State, "City": City, "Amenity": Amenity
+    cls_arr = {"BaseModel": BaseModel, "User":User, "State": State, 
+               "City": City, "Amenity": Amenity,
                 "Place": Place, "Review": Review}
 
     def do_quit(self, line):
