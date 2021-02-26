@@ -6,11 +6,19 @@ import cmd
 from models.base_model import BaseModel
 import models
 from models.user import User
+from models.review import Review
+from models.state import State
+from models.place import Place
+from models.amenity import Amenity
+from models.city import City
+
+
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     cls_arr = {"BaseModel": BaseModel
-                "User":User}
+            "User":User, "State": State, "City": City, "Amenity": Amenity
+                "Place": Place, "Review": Review}
 
     def do_quit(self, line):
         """ Quit command to exit the program
