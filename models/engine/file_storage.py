@@ -44,7 +44,7 @@ class FileStorage:
         """
         dict_to_obj = {}
         try:
-            cls_arr = {"BaseModel": BaseModel}
+            cls_arr = {"BaseModel": BaseModel, "User": User}
             with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
                 dict_to_obj = json.load(file)
                 for key, value in dict_to_obj.items():
