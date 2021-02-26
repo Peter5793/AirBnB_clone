@@ -9,7 +9,8 @@ from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    cls_arr = {"BaseModel": BaseModel}
+    cls_arr = {"BaseModel": BaseModel
+                "User":User}
 
     def do_quit(self, line):
         """ Quit command to exit the program
