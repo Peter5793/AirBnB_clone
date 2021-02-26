@@ -5,7 +5,7 @@ inherit from BaseModel
 from models.base_model import BaseModel
 
 
-class Place(models.base_model.BaseModel):
+class Place(BaseModel):
     """class user that inheirts from Base model"""
      city_id = ""
      user_id = ""
