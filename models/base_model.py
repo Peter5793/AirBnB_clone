@@ -4,6 +4,7 @@ Base model
 """
 from uuid import uuid4
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -26,6 +27,8 @@ class BaseModel:
                     continue
                 else:
                     setattr(self, k, v)
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         return("[{}] ({}) {}".format(self.__class__.__name__, self.id,
@@ -35,6 +38,8 @@ class BaseModel:
         Updates te public instance attibute updated_at
         """
         self.updated_at = datetime.now()
+        models.storage.save()
+
     def to_dict(self):
         """
         returns a dictionary containing all keys/values of
