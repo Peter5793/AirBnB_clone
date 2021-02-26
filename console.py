@@ -5,7 +5,7 @@ Console entry point for command line interpreter
 import cmd
 from models.base_model import BaseModel
 import models
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
