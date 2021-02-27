@@ -30,6 +30,11 @@ EOF help quit
 $
 ```
 
+##  Available Commands
+| Command | Arguments | Description |
+| ------- | ---------- |------------|
+| `create`|`<class name`> | Creates a new class from available class list||
+
 
 ## Authors
 Peter Lugalia
