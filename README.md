@@ -37,5 +37,5 @@ $
 
 
 ## Authors
-Peter Lugalia
-Bruno Obonyo
+[Peter Lugalia](masaba.peter68@gmail.com)
+[Bruno Obonyo](nyikal1999@gmail.com)
