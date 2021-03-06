@@ -6,7 +6,6 @@ footer {
 	position: fixed;
 	bottom:0;
 }
-footer.p{
+footer p{
 	text-align: center;
-	padding: 10px;
 }
